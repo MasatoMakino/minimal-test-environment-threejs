@@ -1,4 +1,5 @@
-import { WebGLRenderer } from "three";
+import { WebGLRenderer, Scene, PerspectiveCamera } from "three";
+import WebGPURenderer from "three/examples/jsm/renderers/webgpu/WebGPURenderer.js";
 import { describe, test, expect } from "vitest";
 
 describe("Test", () => {
@@ -14,5 +15,25 @@ describe("Test", () => {
 
     expect(renderer.getContext()).toBeTruthy();
     expect(renderer.domElement.width).toBe(640);
+  });
+
+  test("rendering webgl", () => {
+    const renderer = new WebGLRenderer();
+    const scene = new Scene();
+    const camera = new PerspectiveCamera(75, 640 / 480, 0.1, 1000);
+    renderer.render(scene, camera);
+  });
+
+  test("generate webgpu renerer", () => {
+    const renderer = new WebGPURenderer();
+    renderer.setSize(640, 480);
+    expect(renderer.domElement.width).toBe(640);
+  });
+
+  test("rendering webgpu", () => {
+    const renderer = new WebGPURenderer();
+    const scene = new Scene();
+    const camera = new PerspectiveCamera(75, 640 / 480, 0.1, 1000);
+    renderer.renderAsync(scene, camera);
   });
 });
