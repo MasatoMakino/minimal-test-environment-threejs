@@ -1,5 +1,5 @@
 import { WebGLRenderer, Scene, PerspectiveCamera } from "three";
-import WebGPURenderer from "three/examples/jsm/renderers/webgpu/WebGPURenderer.js";
+import WebGPURenderer from "three/src/renderers/webgpu/WebGPURenderer.js";
 import { describe, test, expect } from "vitest";
 
 describe("Test", () => {
