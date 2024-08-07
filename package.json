@@ -14,7 +14,7 @@
   "devDependencies": {
     "@types/three": "^0.167.1",
     "@vitest/browser": "^2.0.5",
-    "three": "^0.167.0",
+    "three": "^0.167.1",
     "webdriverio": "^8.39.1"
   }
 }
