@@ -15,6 +15,6 @@
     "@types/three": "^0.169.0",
     "@vitest/browser": "^2.1.1",
     "three": "^0.169.0",
-    "webdriverio": "^9.1.1"
+    "webdriverio": "^9.1.2"
   }
 }
