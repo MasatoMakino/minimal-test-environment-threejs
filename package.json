@@ -12,7 +12,7 @@
   "author": "Masato Makino",
   "license": "MIT",
   "devDependencies": {
-    "@types/three": "^0.169.0",
+    "@types/three": "^0.170.0",
     "@vitest/browser": "^2.1.4",
     "three": "^0.170.0",
     "webdriverio": "^9.2.12"
