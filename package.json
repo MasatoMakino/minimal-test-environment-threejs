@@ -13,7 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/three": "^0.170.0",
-    "@vitest/browser": "^2.1.6",
+    "@vitest/browser": "^2.1.8",
     "three": "^0.171.0",
     "webdriverio": "^9.4.1"
   }
