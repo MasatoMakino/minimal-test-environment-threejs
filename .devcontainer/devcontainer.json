@@ -4,9 +4,8 @@
     "dockerfile": "Dockerfile"
   },
   "workspaceFolder": "/workspaces/minimal-test-environment-threejs",
-  "remoteUser": "node",
+  "remoteUser": "runner",
   "runArgs": [
-    "--cap-drop=ALL",
     "--cap-add=SYS_ADMIN",
     "--name=minimal-test-env-npm-runner"
   ],
