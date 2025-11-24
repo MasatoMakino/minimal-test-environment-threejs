@@ -4,7 +4,8 @@
   "description": "Minimal example for unit testing three.js",
   "type": "module",
   "scripts": {
-    "test": "xvfb-run --auto-servernum vitest --run"
+    "test": "vitest --run",
+    "test:ci": "xvfb-run --auto-servernum vitest --run"
   },
   "keywords": [
     "three.js"
