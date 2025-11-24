@@ -128,3 +128,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+local-notes/
+
+# Claude Code local settings
+.claude/*.local.json
+
+# Vitest browser test screenshots
+__test__/__screenshots__/
