@@ -30,10 +30,11 @@ describe("Test", () => {
     expect(renderer.domElement.width).toBe(640);
   });
 
-  test("rendering webgpu", () => {
+  test("rendering webgpu", async () => {
     const renderer = new WebGPURenderer();
     const scene = new Scene();
     const camera = new PerspectiveCamera(75, 640 / 480, 0.1, 1000);
-    renderer.renderAsync(scene, camera);
+    await renderer.init();
+    renderer.render(scene, camera);
   });
 });
