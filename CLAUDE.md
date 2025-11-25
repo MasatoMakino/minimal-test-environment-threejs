@@ -15,38 +15,51 @@ This is a minimal testing environment for Three.js applications. It demonstrates
 
 ## Development Commands
 
-### IMPORTANT: DevContainer-Only Execution
+### Security-Conscious Approach (Recommended)
 
-For security reasons, npm scripts MUST be executed through DevContainer. Direct local execution of npm scripts is prohibited.
+This repository demonstrates DevContainer-based development as a defense against npm supply chain attacks.
+
+**DevContainer provides:**
+- **Filesystem Isolation**: Separates working directory from host OS
+- **Environment Isolation**: Limits access to host environment variables and system information
+- **Damage Containment**: Minimizes impact if malware infiltrates node_modules
 
 **Prerequisites**: Docker Desktop and DevContainer CLI (`npm install -g @devcontainers/cli`)
 
-### Start DevContainer
+#### Start DevContainer
 
 ```bash
 devcontainer up --workspace-folder .
 ```
 
-### Install Dependencies
+#### Install Dependencies
 
 ```bash
 devcontainer exec --workspace-folder . npm ci
 ```
 Use `npm ci` (not `npm install`) to ensure exact versions from package-lock.json.
 
-### Run Tests
+#### Run Tests
 
 ```bash
 devcontainer exec --workspace-folder . npm run test:ci
 ```
 Runs `xvfb-run --auto-servernum vitest --run` in headless Chrome environment.
 
-### Available npm Scripts
+### Alternative: Local Execution (Understand Security Trade-offs)
 
-- `npm test`: Runs `vitest --run` (direct Chrome execution, DevContainer only)
-- `npm run test:ci`: Runs `xvfb-run --auto-servernum vitest --run` (headless with xvfb)
+For users who find DevContainer excessive, direct local execution is available:
 
-**Always use `npm run test:ci` when running tests in DevContainer.**
+```bash
+npm ci
+npm test
+```
+
+**Available npm Scripts:**
+- `npm test`: Direct Chrome execution (requires Chrome installed locally)
+- `npm run test:ci`: xvfb-wrapped execution for headless environments
+
+**Note**: Local execution exposes your host system to potential risks from compromised npm packages. The DevContainer approach is recommended for security-sensitive environments.
 
 ## Architecture
 
@@ -124,7 +137,13 @@ browser: {
 
 ### Security Policy
 
-All npm script execution must go through DevContainer for security isolation. This ensures:
-- Consistent environment between development and CI
-- Isolated npm package execution
-- Chrome browser sandboxing with proper capabilities
+**This repository demonstrates two approaches:**
+
+1. **DevContainer (Recommended)**: Provides defense against npm supply chain attacks through:
+   - Filesystem isolation from host OS
+   - Environment variable and system information isolation
+   - Containment of potential malware in node_modules
+   - Consistent environment between development and CI
+   - Proper Chrome browser sandboxing capabilities
+
+2. **Local Execution (Optional)**: Available for users who understand and accept the security trade-offs. Suitable for learning and experimentation, but not recommended for production or security-sensitive environments.
