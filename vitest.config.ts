@@ -10,7 +10,13 @@ export default defineConfig({
   test: {
     browser: {
       enabled: true,
-      provider: webdriverio(),
+      provider: webdriverio({
+        capabilities: {
+          "goog:chromeOptions": {
+            args: ["--use-gl=angle", "--use-angle=swiftshader"],
+          },
+        },
+      }),
       instances: [
         {
           browser: "chrome",
